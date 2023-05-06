@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center bg-stone-600">
+    <div
+      class="w-[80vw] h-[80vh] border-4 border-solid border-white relative overflow-y-hidden "
+      style="transition: all 1s ease-in-out"
+    >
+      <img
+        class="w-full h-full object-cover absolute photos"
+        style="transition: all 1s ease-in-out"
+        src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+        alt=""
+      />
+      <img
+        class="w-full h-full object-cover absolute photos"
+        style="transition: all 1s ease-in-out"
+        src="https://images.unsplash.com/photo-1521032078283-ca2eb1773c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFuZG9tJTIwcGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+        alt=""
+      />
+      <img
+        class="w-full h-full object-cover absolute photos"
+        style="transition: all 1s ease-in-out"
+        src="https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJhbmRvbSUyMHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt=""
+      />
+      <img
+        style="transition: all 1s ease-in-out"
+        class="w-full h-full object-cover absolute photos"
+        style="transition: all 1s ease-in-out"
+        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJhbmRvbSUyMHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt=""
+      />
+      <img
+        class="w-full h-full object-cover absolute photos"
+        style="transition: all 1s ease-in-out"
+        src="https://images.unsplash.com/photo-1623063921261-5a9914c19548?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHJhbmRvbSUyMHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt=""
+      />
+
+      <button
+        class="next-btn text-5xl text-red-900 bg-white absolute z-10 top-[30%] right-[10%]"
+      >
+        Next
+      </button>
+      <button
+        class="prev-btn text-5xl text-red-900 bg-white absolute z-10 top-[30%] left-[10%]"
+      >
+        Prev
+      </button>
+    </div>
+    <script>
+      const photos = [...document.getElementsByClassName("photos")];
+      let count = 0;
+      const nextBtn = document.getElementsByClassName("next-btn")[0];
+      const prevBtn = document.getElementsByClassName("prev-btn")[0];
+      console.log(nextBtn, prevBtn);
+      photos.forEach((photo, index) => {
+        photo.style.top = index * 100 + "%";
+      });
+
+    
+
+      nextBtn.addEventListener("click", () => {
+        count = count-1;
+        if (count <= -photos.length + 1) {
+          count = -photos.length + 1;
+        }
+        console.log(count)
+        photos.forEach((photo, index) => {
+          photo.style.top = (count + index) * 100 + "%";
+        });
+
+      });
+
+      prevBtn.addEventListener("click", ()=>{
+        count++
+        if(count >= 0){
+          count = 0;
+        }
+        photos.forEach((photo, index) => {
+          photo.style.top = (count + index) * 100 + "%";
+        });
+      })
+    </script>
+  </body>
+</html>

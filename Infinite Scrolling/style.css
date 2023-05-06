@@ -1,0 +1,24 @@
+#box{
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    gap:5rem;
+    flex-wrap: wrap;
+}
+button{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    height: 500px;
+    width: 500px;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
